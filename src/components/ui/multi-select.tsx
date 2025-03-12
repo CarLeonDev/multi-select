@@ -97,8 +97,10 @@ export const MultiSelect = ({
       option.label.toLowerCase().trim() === inputValue.toLowerCase().trim()
   );
 
+  const inputValueTrimmed = inputValue.trim();
+
   const shouldBeCreatedNewOption =
-    inputValue.length > 0 &&
+    inputValueTrimmed.length > 0 &&
     !availableOptions.some((option) =>
       isMatchQuery(option.label, inputValue)
     ) &&
@@ -144,7 +146,10 @@ export const MultiSelect = ({
               <span>{option.label}</span>
               <X
                 className="w-3 h-3 text-gray-500 cursor-pointer"
-                onClick={() => handleUnselect(option.value)}
+                onClick={(event) => {
+                  handleUnselect(option.value);
+                  event.stopPropagation();
+                }}
               />
             </div>
           ))}
@@ -174,17 +179,17 @@ export const MultiSelect = ({
             <CommandList className="rounded bg-popover text-popover-foreground">
               <>
                 <CommandEmpty className="px-4 py-2">
-                  {inputValue.length === 0 ? (
+                  {inputValueTrimmed.length === 0 ? (
                     "No options available"
                   ) : optionAlreadySelected ? (
                     <>
-                      <span className="font-semibold">{inputValue.trim()}</span>{" "}
+                      <span className="font-semibold">{inputValueTrimmed}</span>{" "}
                       already selected
                     </>
                   ) : (
                     <>
                       No options available for{" "}
-                      <span className="font-semibold">{inputValue.trim()}</span>
+                      <span className="font-semibold">{inputValueTrimmed}</span>
                     </>
                   )}
                 </CommandEmpty>
@@ -208,7 +213,9 @@ export const MultiSelect = ({
                       option={option}
                       onSelect={handleSelect}
                     >
-                      <Highlight search={inputValue}>{option.label}</Highlight>
+                      <Highlight search={inputValueTrimmed}>
+                        {option.label}
+                      </Highlight>
                     </OptionItem>
                   );
                 })}
