@@ -15,7 +15,7 @@ const OPTIONS = [
 
 function App() {
   return (
-    <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-32">
+    <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8 pt-20 pb-16 lg:pt-32">
       <div className="flex flex-col gap-1">
         <label className="text-xs font-medium text-gray-600">Chart type</label>
 
