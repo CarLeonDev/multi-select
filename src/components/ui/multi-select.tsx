@@ -67,6 +67,25 @@ export const MultiSelect = ({
     [onChange, selected]
   );
 
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (
+        event.key === "Backspace" &&
+        inputValue.length === 0 &&
+        selected.length > 0
+      ) {
+        handleUnselect(selected[selected.length - 1].value);
+      }
+
+      if ((event.ctrlKey || event.metaKey) && event.key === "a") {
+        event.preventDefault();
+        setSelected(options);
+        onChange?.(options);
+      }
+    },
+    [handleUnselect, inputValue, selected]
+  );
+
   const availableOptions = options.filter(
     (option) =>
       !selected.some((selected) => selected.value === option.value) &&
@@ -108,6 +127,7 @@ export const MultiSelect = ({
       ref={dropdownRef}
       className="overflow-visible bg-transparent text-left"
       shouldFilter={false}
+      onKeyDown={handleKeyDown}
     >
       <div
         className={cn(
