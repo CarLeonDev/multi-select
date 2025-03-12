@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# Multi-Select Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based multi-select component with search, dynamic item creation, and keyboard shortcuts. Built with Tailwind CSS for styling.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Multi-selection**: Select/deselect multiple items.
+- **Search Filtering**: Dynamically filter options as you type.
+- **Match Highlighting**: Highlight matched text in filtered options.
+- **Dynamic Item Creation**: Automatically adds unmatched search terms as new entries.
+- **Selection Removal**: Remove selected items via the `×` button.
+- **Ctrl + A Shortcut**: Select all items with a keyboard shortcut.
+- **Backspace Shortcut**: Remove last item selected with a keyboard shortcut.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clone the repository:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   ```bash
+   git clone https://github.com/your-username/despatch-cloud-multiselect.git
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## Technologies Used
+
+- Vite
+- React 18+
+- Tailwind CSS 4+
+- Shadcn UI
