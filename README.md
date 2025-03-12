@@ -17,7 +17,7 @@ A React-based multi-select component with search, dynamic item creation, and key
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/despatch-cloud-multiselect.git
+   git clone https://github.com/CarLeonDev/multi-select
    ```
 
 2. Install dependencies:
